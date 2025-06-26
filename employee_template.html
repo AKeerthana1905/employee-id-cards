@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Employee ID Card</title>
+  <style>
+    body {
+      background-color: #f4f4f4;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      width: 350px;
+      text-align: left;
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    p {
+      font-size: 16px;
+      margin: 6px 0;
+    }
+    strong {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>$name</h2>
+    <p><strong>ID:</strong> $emp_id</p>
+    <p><strong>Role:</strong> $designation</p>
+    <p><strong>Dept:</strong> $department</p>
+    <p><strong>Email:</strong> $email</p>
+    <p><strong>Phone:</strong> $phone</p>
+    <p><strong>Location:</strong> $location</p>
+    <p><strong>Unique Code:</strong> $unique_id</p>
+  </div>
+</body>
+</html>
