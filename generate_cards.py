@@ -17,20 +17,22 @@ github_username = "akeerthana1905"  # change if needed
 html_filename = f"{employee_data['id']}.html"
 hosted_url = f"https://{github_username}.github.io/employee-id-cards/{html_filename}"
 
-# === HTML FULLSCREEN CARD ===
+# === HTML FULLSCREEN CARD WITH BACKGROUND ===
 html_content = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Employee Details</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-     <style>
+  <style>
     html, body {{
       margin: 0;
       padding: 0;
       height: 100%;
       width: 100%;
       font-family: 'Roboto', sans-serif;
+      background: url('https://images.unsplash.com/photo-1521790945508-bf2a36314e85?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+      background-size: cover;
       background-color: #000080;
       color: white;
       display: flex;
@@ -42,13 +44,14 @@ html_content = f"""<!DOCTYPE html>
       width: 90vw;
       max-width: 500px;
       padding: 5vw;
-      background: #000080;
+      background: rgba(0, 0, 128, 0.8); /* translucent dark blue card */
       border-radius: 16px;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
     }}
 
     h2 {{
-      font-size: 6vw;
+      color: darkgoldenrod;
+      font-size: 28px;
       margin-bottom: 4vw;
       text-align: center;
     }}
@@ -67,8 +70,6 @@ html_content = f"""<!DOCTYPE html>
       p {{ font-size: 18px; }}
     }}
   </style>
-
-
 </head>
 <body>
   <div class="card">
