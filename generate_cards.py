@@ -15,66 +15,63 @@ html_content = f"""<!DOCTYPE html>
   <meta charset="UTF-8">
   <title>Employee ID Card - {employee_data['name']}</title>
   <style>
-    html, body {{
+    body {{
       margin: 0;
       padding: 0;
-      height: 100%;
-      width: 100%;
       background-color: #0a0a0a;
       color: white;
       font-family: Arial, sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
+      height: 100vh;
     }}
 
     .card {{
       background-color: #001f3f;
-      padding: 40px 30px;
+      padding: 60px 50px;
       border-radius: 20px;
       box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
-      width: 350px;
-      height: 600px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      width: 90%;
+      max-width: 700px;
       text-align: center;
     }}
 
     .card h2 {{
-      font-size: 28px;
+      margin-bottom: 40px;
+      font-size: 40px;
       color: #00bfff;
-      margin-bottom: 20px;
+      letter-spacing: 1px;
     }}
 
     .info {{
-      font-size: 18px;
-      margin: 10px 0;
+      margin: 20px 0;
+      font-size: 26px;
     }}
 
     .label {{
       font-weight: bold;
       color: #ccc;
+      margin-right: 10px;
     }}
 
     .footer {{
-      font-size: 16px;
+      margin-top: 40px;
+      font-size: 22px;
       color: #aaa;
-      margin-top: 20px;
+      line-height: 1.5;
     }}
   </style>
 </head>
 <body>
   <div class="card">
-    <div>
-      <h2>Employee Details</h2>
-      <div class="info"><span class="label">ID:</span> {employee_data['id']}</div>
-      <div class="info"><span class="label">Name:</span> {employee_data['name']}</div>
-      <div class="info"><span class="label">Department:</span> {employee_data['department']}</div>
-      <div class="info"><span class="label">Role:</span> {employee_data['role']}</div>
-      <div class="info"><span class="label">Email:</span> {employee_data['email']}</div>
-      <div class="info"><span class="label">Phone:</span> {employee_data['phone']}</div>
-    </div>
+    <h2>Employee Details</h2>
+    <div class="info"><span class="label">ID:</span> {employee_data['id']}</div>
+    <div class="info"><span class="label">Name:</span> {employee_data['name']}</div>
+    <div class="info"><span class="label">Department:</span> {employee_data['department']}</div>
+    <div class="info"><span class="label">Role:</span> {employee_data['role']}</div>
+    <div class="info"><span class="label">Email:</span> {employee_data['email']}</div>
+    <div class="info"><span class="label">Phone:</span> {employee_data['phone']}</div>
     <div class="footer">
       {employee_data['company']}<br>
       Valid Until: {employee_data['valid_until']}
@@ -88,4 +85,4 @@ html_content = f"""<!DOCTYPE html>
 with open("EMP23456.html", "w", encoding="utf-8") as file:
     file.write(html_content)
 
-print("✅ Portrait-style HTML ID card generated: EMP23456.html")
+print("✅ Fullscreen, bold HTML file generated: EMP23456.html")
