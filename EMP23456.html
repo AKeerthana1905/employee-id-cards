@@ -5,57 +5,61 @@
   <title>Employee ID Card - John Doe</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
       background-color: #0a0a0a;
       color: white;
-      text-align: center;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
+
     .card {
-      margin: 50px auto;
-      padding: 20px;
-      background: linear-gradient(to bottom, #004080, #001f3f);
-      border-radius: 10px;
-      width: 300px;
-      box-shadow: 0 0 10px #333;
+      background-color: #001f3f;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      width: 100%;
+      max-width: 400px;
     }
-    img.profile {
-      border-radius: 50%;
-      width: 100px;
-      height: 100px;
+
+    .card h2 {
+      margin-top: 0;
+      text-align: center;
+      font-size: 24px;
+      color: #00bfff;
     }
-    img.logo {
-      margin-top: 20px;
-      width: 80px;
+
+    .info {
+      margin: 15px 0;
+      font-size: 16px;
     }
-    .footer {
-      margin-top: 10px;
-      font-size: 12px;
+
+    .label {
+      font-weight: bold;
       color: #ccc;
     }
-    .company-name {
+
+    .footer {
+      margin-top: 20px;
+      text-align: center;
       font-size: 14px;
-      font-weight: bold;
-      margin-top: 5px;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
   <div class="card">
-    <img class="profile" src="https://via.placeholder.com/100" alt="Employee Photo">
-    <h2>John Doe</h2>
-    <p>Backend Developer</p>
-    <p><strong>ID No:</strong> EMP23456</p>
-    <p><strong>Department:</strong> Software Engineering</p>
-    <p><strong>Phone:</strong> +91 9876543210</p>
-    <p><strong>Email:</strong> john.doe@company.com</p>
-    
-    <!-- Company Logo -->
-    <img class="logo" src="https://via.placeholder.com/80x80?text=Logo" alt="Company Logo">
-    <div class="company-name">Company Name Pvt. Ltd.</div>
-    
-    <div class="footer">
-      Valid Until: 10-10-2030
-    </div>
+    <h2>Employee Details</h2>
+    <div class="info"><span class="label">ID:</span> EMP23456</div>
+    <div class="info"><span class="label">Name:</span> John Doe</div>
+    <div class="info"><span class="label">Department:</span> Software Engineering</div>
+    <div class="info"><span class="label">Role:</span> Backend Developer</div>
+    <div class="info"><span class="label">Email:</span> john.doe@company.com</div>
+    <div class="info"><span class="label">Phone:</span> +91 9876543210</div>
+    <div class="footer">Company Name Pvt. Ltd.<br>Valid Until: 10-10-2030</div>
   </div>
 </body>
 </html>
