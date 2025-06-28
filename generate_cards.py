@@ -33,7 +33,7 @@ with open(html_path, "w", encoding="utf-8") as f:
     f.write(html_content)
 
 # ✅ Step 6: Create QR code for hosted URL (you'll update the URL later)
-url = f"https://yourusername.github.io/employee-id-cards/{filename}"
+url = f"https://yourusername.github.io/employee-id-cards/EMP123456.html"
 qr = qrcode.make(url)
 qr.save(os.path.join(output_folder, f"{employee['emp_id']}_qr.png"))
 
