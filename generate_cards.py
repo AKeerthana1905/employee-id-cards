@@ -1,41 +1,61 @@
+from PIL import Image, ImageDraw, ImageFont
 import qrcode
-import os
-import uuid
-from string import Template  # ✅ NEW: for safe placeholder formatting
 
-# ✅ Step 1: Employee data
+# Employee details
 employee = {
-    "name": "Amit Sharma",
-    "emp_id": "EMP123456",
-    "designation": "Software Engineer",
-    "department": "AI & ML",
-    "email": "amit.sharma@company.com",
-    "phone": "+91-9876543210",
-    "location": "Bangalore, India"
+    "name": "Michal Smith",
+    "position": "General Manager",
+    "id_no": "EMP123456",
+    "blood": "AB+",
+    "phone": "+91 123 456 7890",
+    "email": "name@mail.com",
+    "valid_until": "10-10-2030",
+    "qr_url": "https://akeerthana1905.github.io/employee-id-cards/EMP123456.html"
 }
 
-# ✅ Step 2: Add a unique ID
-employee['unique_id'] = str(uuid.uuid4())
+# Create the ID card canvas
+width, height = 650, 400
+card = Image.new("RGB", (width, height), "white")
+draw = ImageDraw.Draw(card)
 
-# ✅ Step 3: Load the HTML template using string.Template
-with open("employee_template.html", "r", encoding="utf-8") as f:
-    template = Template(f.read())  # use Template instead of str.format()
+# Fonts
+try:
+    title_font = ImageFont.truetype("arialbd.ttf", 26)
+    label_font = ImageFont.truetype("arial.ttf", 18)
+    small_font = ImageFont.truetype("arial.ttf", 16)
+except:
+    title_font = label_font = small_font = ImageFont.load_default()
 
-# ✅ Step 4: Fill placeholders with employee data
-html_content = template.substitute(employee)
+# Header with gradient effect simulation (simple solid)
+draw.rectangle([(0, 0), (width, 70)], fill="#673AB7")
+draw.text((20, 20), "EMPLOYEE ID CARD", font=title_font, fill="white")
 
-# ✅ Step 5: Save the output HTML file
-output_folder = "cards"
-os.makedirs(output_folder, exist_ok=True)
-filename = f"{employee['emp_id']}.html"
-html_path = os.path.join(output_folder, filename)
-with open(html_path, "w", encoding="utf-8") as f:
-    f.write(html_content)
+# Profile Image Placeholder
+photo_box = [30, 100, 150, 220]
+draw.rectangle(photo_box, fill="#e0e0e0")
+draw.text((60, 150), "Photo", font=small_font, fill="black")
 
-# ✅ Step 6: Create QR code for hosted URL (you'll update the URL later)
-url = f"https://yourusername.github.io/employee-id-cards/{filename}"
-qr = qrcode.make(url)
-qr.save(os.path.join(output_folder, f"{employee['emp_id']}_qr.png"))
+# Draw employee details
+info_x = 180
+y = 100
+spacing = 30
+draw.text((info_x, y), f"Name: {employee['name']}", font=label_font, fill="#212121"); y += spacing
+draw.text((info_x, y), f"Position: {employee['position']}", font=label_font, fill="#424242"); y += spacing
+draw.text((info_x, y), f"ID No: {employee['id_no']}", font=label_font, fill="#424242"); y += spacing
+draw.text((info_x, y), f"Phone: {employee['phone']}", font=label_font, fill="#424242"); y += spacing
+draw.text((info_x, y), f"Email: {employee['email']}", font=label_font, fill="#424242"); y += spacing
+draw.text((info_x, y), f"Blood Group: {employee['blood']}", font=label_font, fill="#424242"); y += spacing
+draw.text((info_x, y), f"Valid Until: {employee['valid_until']}", font=label_font, fill="#424242")
 
-print(f"✅ HTML saved to: {html_path}")
-print(f"✅ QR code saved. It links to: {url}")
+# QR Code
+qr = qrcode.make(employee["qr_url"])
+qr = qr.resize((110, 110))
+card.paste(qr, (width - 140, height - 140))
+
+# Footer
+draw.rectangle([(0, height - 40), (width, height)], fill="#673AB7")
+draw.text((20, height - 35), "Scan QR for verification", font=small_font, fill="white")
+
+# Save output
+card.save("employee_id_card_attractive_output.png")
+print("✅ Stylish ID card generated: employee_id_card_attractive_output.png")
