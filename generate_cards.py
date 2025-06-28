@@ -26,33 +26,40 @@ html_content = f"""<!DOCTYPE html>
       align-items: center;
       height: 100vh;
     }}
+
     .card {{
       background-color: #001f3f;
-      padding: 40px 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-      width: 100%;
-      max-width: 400px;
-    }}
-    .card h2 {{
-      margin-top: 0;
+      padding: 60px 50px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+      width: 90%;
+      max-width: 700px;
       text-align: center;
-      font-size: 24px;
+    }}
+
+    .card h2 {{
+      margin-bottom: 40px;
+      font-size: 40px;
       color: #00bfff;
+      letter-spacing: 1px;
     }}
+
     .info {{
-      margin: 15px 0;
-      font-size: 16px;
+      margin: 20px 0;
+      font-size: 26px;
     }}
+
     .label {{
       font-weight: bold;
       color: #ccc;
+      margin-right: 10px;
     }}
+
     .footer {{
-      margin-top: 20px;
-      text-align: center;
-      font-size: 14px;
+      margin-top: 40px;
+      font-size: 22px;
       color: #aaa;
+      line-height: 1.5;
     }}
   </style>
 </head>
@@ -65,7 +72,10 @@ html_content = f"""<!DOCTYPE html>
     <div class="info"><span class="label">Role:</span> {employee_data['role']}</div>
     <div class="info"><span class="label">Email:</span> {employee_data['email']}</div>
     <div class="info"><span class="label">Phone:</span> {employee_data['phone']}</div>
-    <div class="footer">{employee_data['company']}<br>Valid Until: {employee_data['valid_until']}</div>
+    <div class="footer">
+      {employee_data['company']}<br>
+      Valid Until: {employee_data['valid_until']}
+    </div>
   </div>
 </body>
 </html>
@@ -75,4 +85,4 @@ html_content = f"""<!DOCTYPE html>
 with open("EMP23456.html", "w", encoding="utf-8") as file:
     file.write(html_content)
 
-print("HTML file generated: EMP23456.html")
+print("✅ Fullscreen, bold HTML file generated: EMP23456.html")
