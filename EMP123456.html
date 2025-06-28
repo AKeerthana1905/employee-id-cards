@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Michal Smith - Employee ID</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #d8d8d8;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .card {
+      width: 320px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      background: linear-gradient(135deg, #1f2c61, #461957);
+      color: #fff;
+    }
+    .card-header {
+      text-align: center;
+      padding: 30px 20px 10px;
+    }
+    .card-header img.logo {
+      height: 50px;
+      margin-bottom: 20px;
+    }
+    .profile-img {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #fff;
+    }
+    .name {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+    .role {
+      font-size: 14px;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+    .info {
+      padding: 0 25px;
+      font-size: 14px;
+    }
+    .info p {
+      margin: 8px 0;
+    }
+    .qr {
+      text-align: center;
+      padding: 15px 0 20px;
+    }
+    .qr img {
+      height: 80px;
+    }
+    .footer {
+      background: #fff;
+      color: #000;
+      text-align: center;
+      padding: 10px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-header">
+      <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="Logo">
+      <img class="profile-img" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profile Image" />
+      <div class="name">Michal Smith</div>
+      <div class="role">General Manager</div>
+    </div>
+    <div class="info">
+      <p><strong>ID:</strong> EMP123456</p>
+      <p><strong>Email:</strong> name@mail.com</p>
+      <p><strong>Phone:</strong> +91 123 456 7890</p>
+      <p><strong>Blood:</strong> AB+</p>
+    </div>
+    <div class="qr">
+      <img src="EMP123456_qr.png" alt="QR Code" />
+    </div>
+    <div class="footer">
+      Valid Until: 10-10-2030
+    </div>
+  </div>
+</body>
+</html>
