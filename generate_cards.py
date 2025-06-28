@@ -14,54 +14,31 @@ html_content = f"""<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <title>Employee ID Card - {employee_data['name']}</title>
-  <style>
-    body {{
-      margin: 0;
-      padding: 0;
-      background-color: #0a0a0a;
-      color: white;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }}
+ <style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* Prevents scrolling */
+  }
+  .fullscreen-container {
+    height: 100vh;
+    width: 100vw;
+    background: #f0f0f0; /* change to your background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
 
-    .card {{
-      background-color: #001f3f;
-      padding: 60px 50px;
-      border-radius: 20px;
-      box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
-      width: 90%;
-      max-width: 700px;
-      text-align: center;
-    }}
+<body>
+  <div class="fullscreen-container">
+    <h1>Employee ID Details</h1>
+    <!-- Your content here -->
+  </div>
+</body>
 
-    .card h2 {{
-      margin-bottom: 40px;
-      font-size: 40px;
-      color: #00bfff;
-      letter-spacing: 1px;
-    }}
-
-    .info {{
-      margin: 20px 0;
-      font-size: 26px;
-    }}
-
-    .label {{
-      font-weight: bold;
-      color: #ccc;
-      margin-right: 10px;
-    }}
-
-    .footer {{
-      margin-top: 40px;
-      font-size: 22px;
-      color: #aaa;
-      line-height: 1.5;
-    }}
-  </style>
 </head>
 <body>
   <div class="card">
