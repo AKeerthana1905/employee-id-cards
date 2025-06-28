@@ -18,37 +18,41 @@
       width: 300px;
       box-shadow: 0 0 10px #333;
     }
-    img {
+    img.profile {
       border-radius: 50%;
       width: 100px;
       height: 100px;
     }
-    .qr {
-      margin-top: 10px;
-    }
-    a {
-      color: lime;
-      word-wrap: break-word;
+    img.logo {
+      margin-top: 20px;
+      width: 80px;
     }
     .footer {
       margin-top: 10px;
       font-size: 12px;
       color: #ccc;
     }
+    .company-name {
+      font-size: 14px;
+      font-weight: bold;
+      margin-top: 5px;
+    }
   </style>
 </head>
 <body>
   <div class="card">
-    <img src="https://via.placeholder.com/100" alt="Employee Photo">
+    <img class="profile" src="https://via.placeholder.com/100" alt="Employee Photo">
     <h2>John Doe</h2>
     <p>Backend Developer</p>
     <p><strong>ID No:</strong> EMP23456</p>
     <p><strong>Department:</strong> Software Engineering</p>
     <p><strong>Phone:</strong> +91 9876543210</p>
     <p><strong>Email:</strong> john.doe@company.com</p>
-    <div class="qr">
-      <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://akeerthana1905.github.io/employee-id-cards/EMP23456.html&size=100x100" alt="QR Code">
-    </div>
+    
+    <!-- Company Logo -->
+    <img class="logo" src="https://via.placeholder.com/80x80?text=Logo" alt="Company Logo">
+    <div class="company-name">Company Name Pvt. Ltd.</div>
+    
     <div class="footer">
       Valid Until: 10-10-2030
     </div>
