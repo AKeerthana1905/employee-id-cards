@@ -1,123 +1,53 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <title>Employee ID Card</title>
+  <meta charset="UTF-8">
+  <title>Employee ID Card - John Doe</title>
   <style>
     body {
-      background-color: #f0f2f5;
-      font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 40px;
-    }
-    .id-card {
-      background: #fff;
-      width: 320px;
-      border-radius: 15px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-      overflow: hidden;
-    }
-    .header {
-      background: linear-gradient(to bottom, #0575e6, #00f2fe);
-      padding: 30px 0 60px;
-      position: relative;
-      text-align: center;
+      font-family: Arial, sans-serif;
+      background-color: #0a0a0a;
       color: white;
+      text-align: center;
     }
-    .photo {
-      position: absolute;
-      top: 90px;
-      left: 50%;
-      transform: translateX(-50%);
+    .card {
+      margin: 50px auto;
+      padding: 20px;
+      background: linear-gradient(to bottom, #004080, #001f3f);
+      border-radius: 10px;
+      width: 300px;
+      box-shadow: 0 0 10px #333;
+    }
+    img {
       border-radius: 50%;
-      overflow: hidden;
-      border: 5px solid white;
       width: 100px;
       height: 100px;
     }
-    .photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .qr {
+      margin-top: 10px;
     }
-    .content {
-      text-align: center;
-      padding: 70px 20px 20px;
-    }
-    .content h2 {
-      margin: 10px 0 0;
-      font-size: 20px;
-      color: #333;
-    }
-    .content p.title {
-      margin: 5px 0;
-      color: #888;
-    }
-    .info {
-      text-align: left;
-      padding: 0 30px;
-      font-size: 14px;
-      color: #333;
-    }
-    .info p {
-      margin: 6px 0;
-    }
-    .barcode {
-      text-align: center;
-      padding: 10px;
-    }
-    .barcode img {
-      height: 100px;
-    }
-    .qr-link {
-      font-size: 12px;
-      word-break: break-all;
-      padding: 5px 20px;
-    }
-    .qr-link a {
-      color: #0056cc;
-      text-decoration: none;
-    }
-    .qr-link a:hover {
-      text-decoration: underline;
+    a {
+      color: lime;
+      word-wrap: break-word;
     }
     .footer {
-      background: linear-gradient(to top, #0575e6, #00f2fe);
-      color: white;
-      text-align: center;
-      font-size: 12px;
-      padding: 10px 0;
-      border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
       margin-top: 10px;
+      font-size: 12px;
+      color: #ccc;
     }
   </style>
 </head>
 <body>
-  <div class="id-card">
-    <div class="header">
-      <div class="photo">
-        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profile Photo" />
-      </div>
-    </div>
-    <div class="content">
-      <h2>Michal Smith</h2>
-      <p class="title">General Manager</p>
-    </div>
-    <div class="info">
-      <p><strong>ID No:</strong> EMP23456</p>
-      <p><strong>Blood:</strong> AB+</p>
-      <p><strong>Phone:</strong> +91 123 456 7890</p>
-      <p><strong>Email:</strong> name@mail.com</p>
-    </div>
-    <div class="barcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcIAAAHCAQAAAABUY/ToAAAENklEQVR4nO1cXW6jQAy2DVIeiZQD9CjkBnvWvQEcpQeoBI+ViLyyPQM0Eho6Kt3S8feQDBN/IpYsj/8AGfLQUyYRwJkpUFJiC85MgZISW3BmCpSU2IIzU6CkxBacmQIlJbbgzN/IxIDaVtBfdfuBiLLqrw8EGKPU/T//2xxQFkvgzJ3MlgUDAPNQSZgtRgN6+UC8jxfGO1QqxGfWMwOUQyqSOUb/0r+8I7SDrPDC0F8rhnZ4IHfmr+qf8G8/D8rgGJyZQv10jdCoHxLfNNzkA4DlaMP275n1JGd+I3MMZmWhEIyIx99zL2i35DOcebwfasT5jLp6Q4bxGlcNS7QkP4wAfFo9yZlHM3tNuMRw2tcQP4fVWEP40DRNsrYvumcGKIekcObRfohXO80kl5Os3hH6l7gyV/UV9yRn/iomWLouub1lY4pWEnzb45D0BzRxrzuXnuTMg22IpSpk6BpxPFILkmSetVzUrgpHkeE2lAQVxmwmC4qC+ejhJdBykeb2aIWjmPmfVM/PgzI4ZeZl422Clh81tsOjZknw1YhQJBhA9uAhOw/kM+pJzjw6HgKNc+xAm88y2ZNVCIDsaIuNET/LkqDSbGiS1QRqKtDKavXDECxHbc3joZ2gopjMUgvSZpiYj0Gb9612zmIbf122PqOeOaAsVklMWNyNeR/Jy6yD362y/OClQobmfmgXqLSY+sLQoyZdFaN1OIbbBDDqFIjswdx97c6nJznz6PpQZ/FQCJ1jKXGy1YdwepY7l57kzMPr1MN8eOmRNedqYJNnS7DtMfVuUGF1ag7xUKgiqvcxF6R16vARRh3dhnaByptBYxhvHOYYOysq1stUrCRnUl6splPqSc48nDnW0teYZMRD/JBNfFxiu1VaH+Kl8G7dtK+55+dBGRyDM4/2QyiJGMo3w4hWEBK3BOsZRplL69H90G5QUUzupA8mQRGiDOFruUhL1F1s44cS0nBqPXNAWawSa4yGGDpbJL0MFplI+MFj6p2gEmfQePY0q6pQFZpms125De0ElTeDBvBsNBBbH7FmtJ5VO5ee5MzDc/vmPc4FaQCk80PNW43Q6KNlN+l1WL7v80N7QaXFQ1WIgkL8HGqMYCLL9OIyTnQuPcmZx9epA1aDaBZdNyFDW4/oC9yGkqBS8zIwF6RpPZs1xcF8j6k/ByovL2MNmOcTzNDGBtkqwXcb2gcqr28PobU6W441WWOl6CPDbSgNKpTJ8yS+PgyEd0nYuhHt3TFqPf4Oq52gst/70UgQ/XqJ3ddGLaeS1xHFOaMf8m/3gnZLPsOZGe/9eEeW1ir318qGX/XpM+7/DIDtq7RlT6gnOfM7+2UQCtNL45WX8TN/vmw/qND3fnC4sKIihw+zJrlaXv5xLj3JmQlQSmATzkyBkhJbcGYKlJTYgjNToKTEFpyZAiUltuDMFPJj6n/OvScDTiytnAAAAABJRU5ErkJggg==" alt="QR Code" />
-      <div class="qr-link">
-        <a href="https://akeerthana1905.github.io/employee-id-cards/EMP23456.html" target="_blank">https://akeerthana1905.github.io/employee-id-cards/EMP23456.html</a>
-      </div>
+  <div class="card">
+    <img src="https://via.placeholder.com/100" alt="Employee Photo">
+    <h2>John Doe</h2>
+    <p>Backend Developer</p>
+    <p><strong>ID No:</strong> EMP23456</p>
+    <p><strong>Department:</strong> Software Engineering</p>
+    <p><strong>Phone:</strong> +91 9876543210</p>
+    <p><strong>Email:</strong> john.doe@company.com</p>
+    <div class="qr">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://akeerthana1905.github.io/employee-id-cards/EMP23456.html&size=100x100" alt="QR Code">
     </div>
     <div class="footer">
       Valid Until: 10-10-2030
